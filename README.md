@@ -1,271 +1,142 @@
-# Dot Workbench / Spotlight Dot Grid
+# Dot Workbench
 
-Uma pequena aplicação interativa criada para praticar fundamentos de HTML semântico, CSS moderno (com variáveis, responsividade e theming automático light/dark), eventos de ponteiro e princípios de Clean Code. Você pode utilizá-la como um workbench (bancada de experimentação) para visualizar, testar ou demonstrar componentes e micro‑interações baseadas em posição do cursor.
+Ambiente modular para construção de interfaces em grid de pontos (spotlight / dot-grid), com foco em acessibilidade, performance, escalabilidade e manutenção. Código leve, legível e consistente em TypeScript, com semântica HTML otimizada para SEO.
 
----
+## Objetivos
 
-## 1. Visão Geral
+- Estrutura sustentável: fácil evolução sem dívidas técnicas.
+- Clean Code + SOLID + separação de camadas.
+- Baixo acoplamento, alta coesão.
+- Reutilização de componentes (design system incremental).
+- SEO técnico aplicado (semântica, performance, meta-informação).
 
-Este projeto exibe uma grade de pontos (dot grid) sobre a qual um efeito de “spotlight” (máscara radial) acompanha o ponteiro. As coordenadas atuais do cursor são exibidas em tempo real. O código foi intencionalmente mantido enxuto para favorecer estudo, extensão e migração futura para TypeScript ou React.
+## Principais Recursos
 
-## 2. Objetivo do Projeto
+- Renderização de grid interativo.
+- Sistema de plugins/extensões.
+- Tipagem forte (TypeScript estrito).
+- Build otimizado para distribuição.
+- Estrutura pronta para SSR ou static export.
+- Hooks/utilitários puros e testáveis.
 
-Projeto de prática (laboratório) para:
+## Stack
 
-- Exercitar HTML semântico enxuto
-- Treinar manipulação de variáveis CSS a partir de eventos JavaScript
-- Aplicar princípios de Clean Code em código front‑end minimalista
-- Servir como base para experimentos (ex.: incorporar novos componentes dentro da área da grade)
-- Facilitar futura migração incremental para TypeScript e/ou React sem reescrever tudo
+- TypeScript
+- HTML semântico
+- CSS modular/utility-first (ou CSS-in-TS se configurado)
+- Bundler (ex: Vite / esbuild) – ajustar conforme o projeto
+- Testes (Jest / Vitest) (recomendado)
+- Lint + Format (ESLint + Prettier)
 
-## 3. Principais Funcionalidades
+## Estrutura de Pastas (sugerida)
 
-- Spotlight (máscara radial) que acompanha o ponteiro
-- Grade responsiva com densidade baseada em `radial-gradient`
-- Suporte a tema claro/escuro via `prefers-color-scheme`
-- Exibição das coordenadas X e Y do ponteiro
-- Uso de variáveis CSS (tokens de design) para fácil personalização
-
-## 4. Arquitetura e Estrutura Simplificada
-
-```text
+```
 dist/
-  index.html       -> Estrutura semântica base
-  style.css        -> Design tokens + layout + efeitos
-  script.js        -> Captura de evento pointermove e atualização de variáveis
-  Dot-Workbench/
-    README.md      -> (Este documento)
+src/
+  core/          # Regras de negócio
+  components/    # Componentes puros (UI + lógica desacoplada)
+  hooks/
+  utils/
+  styles/
+  types/
+  adapters/
+tests/
+public/
 ```
 
-Não há bundler obrigatório. Pode ser servido por qualquer servidor estático.
+## Padrões de Código
 
-## 5. HTML Semântico
+- TypeScript strict: evitar any.
+- Funções pequenas, nomes descritivos.
+- Componentes puros (sem efeitos colaterais fora de hooks controlados).
+- Evitar duplicação (DRY) e preferir composição.
+- Preferir dados imutáveis.
+- Adotar ESLint + Prettier + Husky (pre-commit).
 
-Boas práticas aplicadas ou recomendadas:
+## Semântica & SEO
 
-- Uso de `<main>` para delimitar a área principal
-- `<header>` para o topo fixo com título e campos
-- Substituição de `<div>` genéricas por elementos com significado quando pertinente (ex.: `fieldset` para agrupar outputs de posição do cursor)
-- Título principal com `<h1>` assegurando hierarquia correta
-- Evitar profundidade desnecessária de aninhamento
+- Usar landmarks (header, main, nav, footer).
+- Títulos hierárquicos (h1 único).
+- meta tags: description, viewport, og:_, twitter:_
+- Atributos alt em imagens.
+- Preferir <button> ao invés de div clicável.
+- Lazy loading em elementos pesados.
+- Evitar conteúdo layout shift (CLS).
 
-Exemplo conceitual (simplificado):
+## Acessibilidade
 
-```html
-<main>
-  <section class="container">
-    <header>
-      <h1>DOT GRID</h1>
-      <fieldset class="fields">
-        <legend>Posição do cursor</legend>
-        <span><label for="x-pos">X</label><output id="x-pos"></output></span>
-        <span><label for="y-pos">Y</label><output id="y-pos"></output></span>
-      </fieldset>
-    </header>
-    <section class="dot-grid">
-      <section class="dot-grid-mask"></section>
-    </section>
-  </section>
-</main>
+- Foco visível.
+- Navegação completa via teclado.
+- ARIA somente quando necessário.
+- Contraste AA mínimo.
+- Anunciar mudanças dinâmicas (aria-live se aplicável).
+
+## Performance
+
+- Divisão de código (code splitting).
+- Árvore estática limpa (no dead code).
+- Evitar renders desnecessários (memoização criteriosa).
+- Assets otimizados (imagens modernas, compressão).
+- Lighthouse como métrica de acompanhamento.
+
+## Instalação
+
+```
+git clone <repo>
+cd spotlight-dot-grid
+pnpm install
+pnpm dev
 ```
 
-## 6. Princípios de Clean Code Aplicados
+## Scripts (exemplo)
 
-- Função única e pequena para atualizar coordenadas
-- Nomes descritivos (`updatePointerPosition` em vez de `handler` genérico)
-- Early return para abortar se elementos de saída não existirem
-- Zero lógica duplicada / DRY
-- Uso de `const` para referências estáveis
-- Código comentado apenas quando o “porquê” não é óbvio (evita ruído)
-
-### Exemplo em TypeScript (opcional)
-
-```ts
-const root = document.documentElement;
-const xOutput = document.querySelector<HTMLOutputElement>("#x-pos");
-const yOutput = document.querySelector<HTMLOutputElement>("#y-pos");
-
-function updatePointerPosition(event: PointerEvent): void {
-  if (!xOutput || !yOutput) return; // Early return defensivo
-  root.style.setProperty("--x", `${event.x}px`);
-  root.style.setProperty("--y", `${event.y}px`);
-  xOutput.textContent = event.x.toFixed(0);
-  yOutput.textContent = event.y.toFixed(0);
-}
-
-document.addEventListener("pointermove", updatePointerPosition);
+```
+dev    - ambiente de desenvolvimento
+build  - build otimizado
+lint   - análise estática
+test   - testes
+preview - inspecionar build
 ```
 
-## 7. Variáveis CSS (Design Tokens)
+## Contribuição
 
-O arquivo `style.css` define tokens de espaçamento, cor, raio e estado. Benefícios:
+1. Abrir issue descrevendo motivação.
+2. Criar branch feature/nome-claro.
+3. Escrever testes quando aplicável.
+4. Executar lint + test antes do PR.
+5. PR objetivo com descrição sucinta.
 
-- Consistência visual
-- Fácil theming (alterar apenas variáveis)
-- Redução de repetição em regras
+## Convenções de Commits
 
-Exemplo:
+Conventional Commits (ex):
 
-```css
-:root {
-  --space-3: 16px;
-  --surface-000: var(--gray-000);
-  --text: var(--black);
-}
+- feat: nova funcionalidade
+- fix: correção
+- refactor: alteração interna
+- docs: documentação
+- chore: tarefas auxiliares
+- test: testes
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface-000: var(--black);
-    --text: var(--gray-000);
-  }
-}
-```
+## Roadmap (sugestão)
 
-## 8. Acessibilidade (A11y)
+- [ ] Modo dark acessível
+- [ ] Sistema de temas
+- [ ] Export de configurações
+- [ ] Plugin de snapping inteligente
+- [ ] Internacionalização (i18n)
 
-Medidas e sugestões:
+## MIT License
 
-- Uso de `<label>` associado por `for` e `id`
-- Contrast ratio adequado entre texto e fundo (verificar com ferramentas como Lighthouse)
-- Evitar depender exclusivamente de cor para transmitir informação
-- Garantir foco visível caso elementos interativos sejam adicionados
-- Manter hierarquia correta de headings
+Copyright (c) 2024
 
-## 9. SEO Básico
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Embora seja uma demonstração, boas práticas ajudam:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-- Título de página descritivo (`<title>Spotlight Dot Grid</title>`)
-- Uso de `<meta charset="UTF-8">` e potencial para adicionar `<meta name="description">`
-- Estrutura semântica clara para rastreadores
-- Evitar conteúdo bloqueado por JavaScript para informações críticas (a página é funcional sem JS para estrutura base)
+THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Sugestão adicional:
+## Contato
 
-```html
-<meta
-  name="description"
-  content="Workbench interativo com grid de pontos e efeito spotlight para testes de UI e componentes."
-/>
-```
+Abra uma issue para dúvidas ou sugestões.
 
-## 10. Guia de Uso (Local)
-
-1. Clonar ou copiar os arquivos
-2. Abrir `index.html` diretamente no navegador OU servir com um servidor estático simples
-
-Exemplos de servidores locais (opcionais):
-
-```bash
-# Python 3
-python -m http.server 5173
-
-# Node (npx)
-npx serve .
-```
-
-Em seguida acesse: `http://localhost:5173` (ou porta exibida).
-
-## 11. Personalização Rápida
-
-| Objetivo            | Onde alterar                                          |
-| ------------------- | ----------------------------------------------------- |
-| Cor do foco / hover | Variáveis `--focus`, `--hover`, `--active` em `:root` |
-| Densidade da grade  | `background-size` em `.dot-grid`                      |
-| Raio do spotlight   | `--radius` em `.dot-grid-mask`                        |
-| Fonte               | Declaração `font-family` em `body`                    |
-
-Para experimentar dinamicamente: ajustar as variáveis via DevTools ou com novos controles no header.
-
-## 12. Migração para TypeScript
-
-Estratégia incremental:
-
-1. Renomear `script.js` para `script.ts`
-2. Adicionar arquivo `tsconfig.json` mínimo
-3. Tipar saída de `querySelector`
-4. Adicionar verificação estrita (`strict: true`)
-5. Evoluir para múltiplos módulos se a lógica crescer
-
-Exemplo de `tsconfig.json` minimalista:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "ES2020",
-    "moduleResolution": "Node",
-    "strict": true,
-    "outDir": "./build"
-  },
-  "include": ["./**/*.ts"]
-}
-```
-
-## 13. Migração para React (Opcional)
-
-Possível abordagem:
-
-1. Criar estrutura com Vite (`npm create vite@latest`)
-2. Mover `style.css` para `src/` e importar em `App.tsx`
-3. Transformar a grade em componente `<DotGrid />`
-4. Usar `useState` / `useEffect` para coordenadas ou `useRef` para manipular CSS custom properties
-5. Manter tokens CSS como estão (evita refator desnecessário)
-
-Exemplo de hook básico:
-
-```tsx
-function usePointerCssVars() {
-  useEffect(() => {
-    function handle(e: PointerEvent) {
-      document.documentElement.style.setProperty("--x", `${e.x}px`);
-      document.documentElement.style.setProperty("--y", `${e.y}px`);
-    }
-    window.addEventListener("pointermove", handle);
-    return () => window.removeEventListener("pointermove", handle);
-  }, []);
-}
-```
-
-## 14. Roadmap Sugerido
-
-- [ ] Adicionar controle de raio do spotlight (slider)
-- [ ] Alternar densidade da grade (select)
-- [ ] Exportar captura do estado atual (screenshot ou JSON de configs)
-- [ ] Suporte a múltiplos spotlights (multiplayer / multi-pointer)
-- [ ] Adicionar painel lateral para componentes customizados
-- [ ] Converter para TypeScript completo
-- [ ] Criar versão React com Storybook
-
-## 15. Contribuições
-
-Contribuições são bem-vindas. Recomenda-se:
-
-1. Abrir issue descrevendo a proposta
-2. Criar branch nomeada (ex.: `feat/controle-raio`)
-3. Seguir estilo existente (consistência > reinvenção)
-4. Testar em tema claro e escuro
-5. Abrir Pull Request explicando motivação e mudanças
-
-## 16. Licença
-
-Defina aqui a licença desejada (ex.: MIT). Caso nenhuma seja especificada, o projeto fica implicitamente sob direitos reservados do autor — considere explicitar para permitir reutilização.
-
-Exemplo de enunciado MIT:
-
-> Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-
-## 17. FAQ Rápido
-
-**Por que não usar canvas?**
-O objetivo era demonstrar o poder de gradientes CSS e máscaras com zero dependências.
-
-**Funciona em dispositivos touch?**
-Sim, o evento `pointermove` cobre ponteiros diversos, mas a experiência spotlight é naturalmente mais interessante com mouse.
-
-**Posso integrar com Storybook?**
-Sim. Basta envolver o container da grade em um decorator e expor componentes dentro dele.
-
----
-
-Se este workbench lhe for útil, adapte e expanda livremente mantendo créditos quando apropriado.
+Focado em qualidade, clareza e evolução contínua.
