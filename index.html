@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOT WORKBENCH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="container">
+        <header>
+          <h1>DOT WORKBENCH</h1>
+          <fieldset class="fields">
+            <span>
+              <label for="x-pos">X</label>
+              <output id="x-pos"></output>
+            </span>
+            <span>
+              <label for="y-pos">Y</label>
+              <output id="y-pos"></output>
+            </span>
+          </fieldset>
+        </header>
+        <section class="dot-grid">
+          <section class="dot-grid-mask"></section>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
