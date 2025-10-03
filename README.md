@@ -249,10 +249,6 @@ Contribuições são bem-vindas. Recomenda-se:
 
 ## 16. Licença
 
-Defina aqui a licença desejada (ex.: MIT). Caso nenhuma seja especificada, o projeto fica implicitamente sob direitos reservados do autor — considere explicitar para permitir reutilização.
-
-Exemplo de enunciado MIT:
-
 > Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
 
 ## 17. FAQ Rápido
