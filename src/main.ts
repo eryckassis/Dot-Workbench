@@ -13,3 +13,23 @@ function atualizarPosiçãoDoPonteiro(event: PointerEvent): void {
 }
 
 document.addEventListener("pointermove", atualizarPosiçãoDoPonteiro);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("button")
+  );
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      button.classList.toggle("following");
+      button.textContent = button.classList.contains("following")
+        ? "Unfollow"
+        : "Seguir";
+    });
+  });
+
+  // for demo only
+  setTimeout(function () {
+    const btn = document.querySelector<HTMLButtonElement>("button");
+    if (btn) btn.focus();
+  }, 500);
+});
