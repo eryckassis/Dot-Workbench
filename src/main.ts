@@ -11,25 +11,40 @@ function atualizarPosiçãoDoPonteiro(event: PointerEvent): void {
   xOutput.textContent = event.x.toFixed(0);
   yOutput.textContent = event.x.toFixed(0);
 }
-
 document.addEventListener("pointermove", atualizarPosiçãoDoPonteiro);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = Array.from(
-    document.querySelectorAll<HTMLButtonElement>("button")
-  );
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      button.classList.toggle("following");
-      button.textContent = button.classList.contains("following")
-        ? "Unfollow"
-        : "Seguir";
-    });
-  });
+//                                        Lógica para o botão dos Cards                                //
 
-  // for demo only
-  setTimeout(function () {
-    const btn = document.querySelector<HTMLButtonElement>("button");
-    if (btn) btn.focus();
-  }, 500);
+document.addEventListener("DOMContentLoaded", () => {
+  const botoes = getAllButtons();
+  if (botoes.length === 0) throw new Error("Nenhum botão encontrado.");
+
+  botoes.forEach((botao) => {
+    botao.addEventListener("click", handleButtonClick);
+  });
+  focusFirstButton();
 });
+
+function getAllButtons(): HTMLButtonElement[] {
+  return Array.from(document.querySelectorAll<HTMLButtonElement>("button"));
+}
+
+function handleButtonClick(this: HTMLButtonElement): void {
+  this.classList.toggle("following");
+  this.textContent = this.classList.contains("following")
+    ? "Unfollow"
+    : "Seguir";
+}
+
+function focusFirstButton(): void {
+  setTimeout(() => {
+    const botaozinho = document.querySelector<HTMLButtonElement>("button");
+    if (!botaozinho) return;
+    botaozinho.focus();
+  }, 500);
+}
+
+// Meus principais pontos:
+// Cada função receberá uma unica responsabilidade(SRP);
+// Utilizado early return para evitar execuções desnecessárias;
+// Codigo totalmente modular, fácil de testar & manter
