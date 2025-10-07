@@ -2,6 +2,14 @@
 
 Ambiente modular para construção de interfaces em grid de pontos (spotlight / dot-grid), com foco em acessibilidade, performance, escalabilidade e manutenção. Código leve, legível e consistente em TypeScript, com semântica HTML otimizada para SEO.
 
+
+
+https://github.com/user-attachments/assets/c03960c1-df02-45d4-b992-bb5c994673ee
+
+
+
+
+
 ## Objetivos
 
 - Estrutura sustentável: fácil evolução sem dívidas técnicas.
