@@ -44,6 +44,8 @@ function focusFirstButton(): void {
   }, 500);
 }
 
+export { getAllButtons, handleButtonClick, focusFirstButton };
+
 // Meus principais pontos:
 // Cada função receberá uma unica responsabilidade(SRP);
 // Utilizado early return para evitar execuções desnecessárias;

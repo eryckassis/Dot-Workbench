@@ -13,5 +13,5 @@ module.exports = {
   moduleNameMapping: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
-  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts", "!src/main.ts"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts"],
 };
