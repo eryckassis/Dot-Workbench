@@ -44,7 +44,12 @@ function focusFirstButton(): void {
   }, 500);
 }
 
-export { getAllButtons, handleButtonClick, focusFirstButton };
+export {
+  getAllButtons,
+  handleButtonClick,
+  focusFirstButton,
+  atualizarPosiçãoDoPonteiro,
+};
 
 // Meus principais pontos:
 // Cada função receberá uma unica responsabilidade(SRP);
