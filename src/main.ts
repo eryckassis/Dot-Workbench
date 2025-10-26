@@ -55,3 +55,4 @@ export {
 // Cada função receberá uma unica responsabilidade(SRP);
 // Utilizado early return para evitar execuções desnecessárias;
 // Codigo totalmente modular, fácil de testar & manter
+// teste
