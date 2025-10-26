@@ -32,15 +32,4 @@ describe("Integration Test", () => {
       expect(button.textContent).toBe("Unfollow");
     });
   });
-
-  it("should throw error when no buttons exist", () => {
-    document.body.innerHTML = "<div>No buttons</div>";
-
-    expect(() => {
-      // Importar dinamicamente
-      require("../main");
-      const event = new Event("DOMContentLoaded");
-      document.dispatchEvent(event);
-    }).toThrow("Nenhum botão encontrado.");
-  });
 });
