@@ -19,6 +19,7 @@ describe("Integration Test", () => {
 
   it("should initialize buttons correctly", () => {
     // Importar dinamicamente para evitar problemas de módulo
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require("../main");
 
     // Simular DOMContentLoaded
