@@ -1,0 +1,22 @@
+ED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' 
+
+echo "${GREEN}📝 Validating commit message...${NC}"
+
+npx --no -- commitlint --edit $1 || {
+  echo "${RED}❌ Commit message does not follow conventional commits!${NC}"
+  echo ""
+  echo "Format: <type>(<scope>): <subject>"
+  echo ""
+  echo "Types: feat, fix, docs, style, refactor, perf, test, chore"
+  echo ""
+  echo "Examples:"
+  echo "  feat: add follow button"
+  echo "  fix: correct button toggle"
+  echo "  docs: update README"
+  echo "  test: add button tests"
+  exit 1
+}
+
+echo "${GREEN}✅ Commit message validated!${NC}"
