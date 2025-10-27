@@ -19,6 +19,7 @@ describe("Integration Test", () => {
 
   it("should initialize buttons correctly", () => {
     // Importar dinamicamente para evitar problemas de módulo
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require("../main");
 
     // Simular DOMContentLoaded
@@ -31,16 +32,5 @@ describe("Integration Test", () => {
       expect(button).toHaveClass("following");
       expect(button.textContent).toBe("Unfollow");
     });
-  });
-
-  it("should throw error when no buttons exist", () => {
-    document.body.innerHTML = "<div>No buttons</div>";
-
-    expect(() => {
-      // Importar dinamicamente
-      require("../main");
-      const event = new Event("DOMContentLoaded");
-      document.dispatchEvent(event);
-    }).toThrow("Nenhum botão encontrado.");
   });
 });

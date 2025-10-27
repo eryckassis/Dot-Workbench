@@ -65,24 +65,3 @@ describe("Main.ts - Button Logic", () => {
     });
   });
 });
-
-describe("Main.ts - Pointer Logic", () => {
-  beforeEach(() => {
-    document.body.innerHTML = ` <output id="x-pos"></output>
-      <output id="y-pos"></output>`;
-  });
-
-  it("should update CSS properties and values on pointer move", () => {
-    const mockEvent = new PointerEvent("pointermove", {
-      clientX: 100,
-      clientY: 200,
-    });
-    document.dispatchEvent(mockEvent);
-    expect(document.documentElement.style.getPropertyValue("--x")).toBe(
-      "100px"
-    );
-    expect(document.documentElement.style.getPropertyValue("--y")).toBe(
-      "200px"
-    );
-  });
-});

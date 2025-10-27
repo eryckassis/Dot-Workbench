@@ -1,0 +1,90 @@
+# Dependabot Configuration (GitHub Native)
+# Docs: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates
+
+version: 2
+
+updates:
+  # Monitorar dependências npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
+
+    # Quantidade de PRs abertos simultaneamente
+    open-pull-requests-limit: 5
+
+    # Prefixo do commit
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+
+    # Labels para PRs criados
+    labels:
+      - "dependencies"
+      - "automated"
+
+    # Assignees (opcional)
+    assignees:
+      - "eryckassis"
+
+    # Agrupar atualizações relacionadas
+    groups:
+      # Grupo para ESLint e plugins relacionados
+      eslint:
+        patterns:
+          - "eslint*"
+          - "@typescript-eslint/*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Grupo para TypeScript e ferramentas
+      typescript:
+        patterns:
+          - "typescript"
+          - "ts-*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Grupo para Jest e testes
+      testing:
+        patterns:
+          - "jest*"
+          - "@testing-library/*"
+          - "@types/jest"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Grupo para Prettier
+      prettier:
+        patterns:
+          - "prettier*"
+        update-types:
+          - "minor"
+          - "patch"
+
+    # Versionamento semântico
+    versioning-strategy: "auto"
+
+    # Rebase automático de PRs
+    rebase-strategy: "auto"
+
+  # Monitorar GitHub Actions (se tiver workflows)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "github-actions"
+      - "dependencies"
