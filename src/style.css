@@ -18,6 +18,8 @@ article.card > section header {
 *::after {
   box-sizing: border-box;
   font: inherit;
+}
+
 /* Container para centralizar os cards */
 .cards-center-container {
   display: flex;
@@ -26,7 +28,6 @@ article.card > section header {
   min-height: 100vh;
   width: 100vw;
   flex-wrap: wrap;
-}
 }
 
 html {
@@ -88,7 +89,7 @@ html {
     --surface-000: var(--black);
     --surface-100: var(--gray-900);
     --surface-200: var(--gray-800);
-    --border-000: var(#f6f3f7);
+    --border-000: #f6f3f7;
     --dots-hover: var(--gray-600);
     --focus: var(--orange-400);
     --hover: var(--orange-400);
@@ -159,7 +160,7 @@ main {
 }
 
 .fields {
-  color: #f6f3f7);
+  color: #f6f3f7;
   border-radius: 0.5rem;
   border-color: #f6f3f7;
   display: flex;
@@ -227,7 +228,8 @@ output {
 
 /* Background + centering for the page with two cards */
 body {
-  background: url("../public/SL-072622-51930-14.jpg") no-repeat center center fixed;
+  background: url("../public/SL-072622-51930-14.jpg") no-repeat center center
+    fixed;
   background-size: cover;
   min-height: 1000vh;
   margin: 0;
@@ -259,7 +261,7 @@ article.card {
   margin: 2rem;
   overflow: clip;
   position: relative;
-  font-family: Lato,Montserrat, Helvetica, Arial, sans-serif;
+  font-family: Lato, Montserrat, Helvetica, Arial, sans-serif;
 }
 
 article.card.dark {
@@ -272,27 +274,29 @@ article.card.dark {
 }
 
 article.card::before {
- content: "";
-    position: absolute;
-    width: calc(100% - 1rem);
-    height: 30%;
-    bottom: 0.5rem;
-    left: 0.5rem;
-    mask: linear-gradient(#0000, #000f 50%);
-    backdrop-filter: blur(10px);
-    border-radius: 0 0 1.5rem 1.5rem;
-    translate: 0 0;
-    transition: translate 0.0.1s;
+  content: "";
+  position: absolute;
+  width: calc(100% - 1rem);
+  height: 30%;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  mask: linear-gradient(#0000, #000f 50%);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 1.5rem 1.5rem;
+  translate: 0 0;
+  transition: translate 0.1s;
 }
 
 article.card > img {
-    max-width: 100%;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
-    object-position: 50% 5%;
-    border-radius: 1.9rem;
-    display: block;
-    transition: aspect-ratio 0.25s, object-position 0.5s;
+  max-width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: 50% 5%;
+  border-radius: 1.9rem;
+  display: block;
+  transition:
+    aspect-ratio 0.25s,
+    object-position 0.5s;
 }
 
 article.card > section {
@@ -303,26 +307,31 @@ article.card > section {
 }
 
 article.card > section header h2 {
-
-   margin: 0;
-      margin-block-end: rem;
-      font-size: 1.5rem;
-      opacity: 0;
-      translate: 0 -200%;
-      opacity: 1;
-      color: var(--title-color);
-      transition: color 0.5s, margin-block-end 0.25s, opacity 1s,
-        translate 0.25s;
+  margin: 0;
+  margin-block-end: 0.5rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  translate: 0 -200%;
+  opacity: 1;
+  color: var(--title-color);
+  transition:
+    color 0.5s,
+    margin-block-end 0.25s,
+    opacity 1s,
+    translate 0.25s;
 }
 
 article.card > section p {
- font-size: 0.95rem;
-      line-height: 1;
-      color: var(--text-color);
-      opacity: 0;
-      margin: 0;
-      translate: 0 100%;
-      transition: margin-block-end 0.25s, opacity 1s 0.2s, translate 0.25s 0.2s;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--text-color);
+  opacity: 0;
+  margin: 0;
+  translate: 0 100%;
+  transition:
+    margin-block-end 0.25s,
+    opacity 1s 0.2s,
+    translate 0.25s 0.2s;
 }
 
 article.card > section footer {
@@ -332,7 +341,9 @@ article.card > section footer {
   justify-content: space-between;
   translate: 0 100%;
   opacity: 0;
-  transition: translate .25s .2s, opacity 1s;
+  transition:
+    translate 0.25s 0.2s,
+    opacity 1s;
 }
 
 article.card > section .tag,
@@ -342,23 +353,23 @@ article.card > section span.tag {
 }
 
 article.card > section button {
-   border: 1px solid #0000;
-      border-radius: 1.25rem 1.25rem 1.5rem 1.25rem;
-      font-size: 1rem;
-      padding: 1rem 1.5rem 1rem 2.7rem;
-      translate: 1rem;
-      background: var(--button-color);
-      transition: background 0.33s;
-      outline-offset: 2px;
-      position: relative;
-      color: var(--title-color-hover);
+  border: 1px solid #0000;
+  border-radius: 1.25rem 1.25rem 1.5rem 1.25rem;
+  font-size: 1rem;
+  padding: 1rem 1.5rem 1rem 2.7rem;
+  translate: 1rem;
+  background: var(--button-color);
+  transition: background 0.33s;
+  outline-offset: 2px;
+  position: relative;
+  color: var(--title-color-hover);
 }
 
 article.card > section button::before,
 article.card > section button::after {
   content: "";
-  width: .85rem;
-  height: .1rem;
+  width: 0.85rem;
+  height: 0.1rem;
   background: currentcolor;
   position: absolute;
   top: 50%;
@@ -368,7 +379,7 @@ article.card > section button::after {
 
 article.card > section button::after {
   rotate: 90deg;
-  transition: rotate .15s;
+  transition: rotate 0.15s;
 }
 
 article.card > section button.following::after {
@@ -393,7 +404,9 @@ article.card:hover > img,
 article.card:focus-within > img {
   aspect-ratio: 1 / 1;
   object-position: 50% 10%;
-  transition: aspect-ratio .25s, object-position .25s;
+  transition:
+    aspect-ratio 0.25s,
+    object-position 0.25s;
 }
 
 article.card:hover > section header h2,
@@ -401,7 +414,7 @@ article.card:focus-within > section header h2,
 article.card:hover > section p,
 article.card:focus-within > section p {
   translate: 0 0;
-  margin-block-end: .5rem;
+  margin-block-end: 0.5rem;
   opacity: 1;
 }
 
@@ -414,6 +427,7 @@ article.card:hover > section footer,
 article.card:focus-within > section footer {
   translate: 0 0;
   opacity: 1;
-  transition: translate .25s .25s, opacity .5s .25s;
+  transition:
+    translate 0.25s 0.25s,
+    opacity 0.5s 0.25s;
 }
-

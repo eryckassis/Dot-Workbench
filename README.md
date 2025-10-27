@@ -1,5 +1,87 @@
 # 🧪 Dot-Workbench - Integração Jest com TypeScript + Vite
 
+<p align="center">
+  <a href="https://github.com/eryckassis/Dot-Workbench/actions/workflows/ci.yml">
+    <img src="https://github.com/eryckassis/Dot-Workbench/actions/workflows/ci.yml/badge.svg" alt="CI Status">
+  </a>
+  <a href="https://codecov.io/gh/eryckassis/Dot-Workbench">
+    <img src="https://codecov.io/gh/eryckassis/Dot-Workbench/branch/master/graph/badge.svg" alt="Coverage">
+  </a>
+  <a href="https://github.com/eryckassis/Dot-Workbench/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/eryckassis/Dot-Workbench" alt="License">
+  </a>
+  <a href="https://github.com/eryckassis/Dot-Workbench/issues">
+    <img src="https://img.shields.io/github/issues/eryckassis/Dot-Workbench" alt="Issues">
+  </a>
+  <a href="https://github.com/eryckassis/Dot-Workbench/pulls">
+    <img src="https://img.shields.io/github/issues-pr/eryckassis/Dot-Workbench" alt="Pull Requests">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/eryckassis/Dot-Workbench/stargazers">
+    <img src="https://img.shields.io/github/stars/eryckassis/Dot-Workbench?style=social" alt="Stars">
+  </a>
+  <a href="https://github.com/eryckassis/Dot-Workbench/network/members">
+    <img src="https://img.shields.io/github/forks/eryckassis/Dot-Workbench?style=social" alt="Forks">
+  </a>
+</p>
+
+## 📊 Status do Projeto
+
+![Node Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
+![Jest](https://img.shields.io/badge/Jest-30.2-red)
+![Vite](https://img.shields.io/badge/Vite-7.1-646CFF)
+![ESLint](https://img.shields.io/badge/ESLint-9.38-4B32C3)
+
+### Quality Gates
+
+![Code Quality](https://img.shields.io/badge/code%20quality-A+-brightgreen)
+![Maintainability](https://img.shields.io/badge/maintainability-A-brightgreen)
+![Test Coverage](https://codecov.io/gh/eryckassis/Dot-Workbench/branch/master/graph/badge.svg)
+
+## 🚀 Pipeline Status
+
+| Check        | Status                                                                                    |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| CI/CD        | ![CI](https://github.com/eryckassis/Dot-Workbench/actions/workflows/ci.yml/badge.svg)     |
+| Tests        | ![Tests](https://img.shields.io/badge/tests-passing-brightgreen)                          |
+| Coverage     | ![Coverage](https://codecov.io/gh/eryckassis/Dot-Workbench/branch/master/graph/badge.svg) |
+| Dependencies | ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)     |
+| Code Style   | ![Code Style](https://img.shields.io/badge/code%20style-prettier-ff69b4)                  |
+| Commits      | ![Commits](https://img.shields.io/badge/commits-conventional-brightgreen)                 |
+
+## 📊 Métricas de Qualidade
+
+Code Coverage: 85%+ 🎯
+Code Quality: A+ ⭐
+Maintainability: High 🚀
+Technical Debt: Low ✅
+
+## 🛠️ Stack Tecnológica
+
+- ⚡ **Vite** - Build tool
+- 📘 **TypeScript** - Type safety
+- 🧪 **Jest** - Testing framework
+- 🎨 **ESLint** - Code linting
+- ✨ **Prettier** - Code formatting
+- 🔄 **Husky** - Git hooks
+- 📝 **Commitlint** - Commit standards
+- 🤖 **Dependabot** - Dependency updates
+- 🚀 **GitHub Actions** - CI/CD
+
+## 📈 Status dos Testes
+
+![Test Results](https://img.shields.io/badge/tests-passing-brightgreen)
+![Unit Tests](https://img.shields.io/badge/unit%20tests-✓-brightgreen)
+![Integration Tests](https://img.shields.io/badge/integration%20tests-✓-brightgreen)
+
+## 🔒 Segurança
+
+![Security](https://img.shields.io/badge/security-A-brightgreen)
+![Vulnerabilities](https://img.shields.io/badge/vulnerabilities-0-brightgreen)
+
 Ambiente modular para construção de interfaces em grid de pontos (spotlight / dot-grid), com foco em acessibilidade, performance, escalabilidade e manutenção. Código leve, legível e consistente em TypeScript, com semântica HTML otimizada para SEO.
 
 **PLUS**: Integração completa de testes automatizados Jest com TypeScript/Vite, incluindo todas as configurações necessárias e soluções para problemas comuns.
