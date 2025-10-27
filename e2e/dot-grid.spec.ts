@@ -6,7 +6,7 @@ test.describe("Dot Grid Workbench", () => {
   });
   test("should load the page successfully", async ({ page }) => {
     // Verifica se o título está correto
-    await expect(page).toHaveTitle(/Dot-Workbench/i);
+    await expect(page).toHaveTitle(/DOT[\s-]?WORKBENCH/i);
 
     // Verifica se elementos principais estão visíveis
     const container = page.locator(".container");

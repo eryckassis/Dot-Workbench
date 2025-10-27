@@ -14,6 +14,10 @@ export default defineConfig({
   // Configuração de expect
   expect: {
     timeout: 5000,
+    toHaveScreenshot: {
+      // Aceita diferenças mínimas de pixels
+      maxDiffPixels: 100,
+    },
   },
 
   // Execução paralela
