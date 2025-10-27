@@ -11,8 +11,10 @@
     "lint:fix": "eslint . --fix",
     "lint:check": "eslint . --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "dev": "vite",
     "build": "npm run lint:check && tsc && vite build",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "prepare": "husky"
   },
