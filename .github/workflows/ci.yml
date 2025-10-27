@@ -8,7 +8,7 @@ on:
   workflow_dispatch: # Permite executar manualmente
 
 permissions:
-  contents: read
+  contents: write # Mudado de 'read' para 'write'
   pull-requests: write
   checks: write
   statuses: write
