@@ -1,0 +1,106 @@
+name: 🐛 Bug Report
+description: Reporte um bug ou comportamento inesperado
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar um bug! Isso nos ajuda a melhorar o projeto.
+
+        **Antes de continuar:**
+        - Procure por issues similares já abertas
+        - Teste na versão mais recente
+        - Verifique a documentação
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Descrição do Bug
+      description: Descreva de forma clara e concisa o problema que você encontrou.
+      placeholder: O que aconteceu de errado?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 🔄 Passos para Reproduzir
+      description: Como podemos reproduzir o bug?
+      placeholder: |
+        1. Vá para '...'
+        2. Clique em '...'
+        3. Observe o erro '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: ✅ Comportamento Esperado
+      description: O que deveria ter acontecido?
+      placeholder: Descreva o comportamento esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: ❌ Comportamento Atual
+      description: O que realmente aconteceu?
+      placeholder: Descreva o comportamento atual
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 🖥️ Ambiente
+      description: Informações sobre seu ambiente
+      value: |
+        - OS: [e.g. Windows 11, macOS 14, Ubuntu 22.04]
+        - Browser: [e.g. Chrome 120, Firefox 121, Safari 17]
+        - Node Version: [e.g. 20.10.0]
+        - npm Version: [e.g. 10.2.0]
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 📸 Screenshots
+      description: Se aplicável, adicione screenshots para ilustrar o problema
+      placeholder: Cole ou arraste imagens aqui
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 📋 Logs de Erro
+      description: Console logs, stack traces, ou qualquer output relevante
+      render: shell
+      placeholder: Cole os logs aqui
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: ℹ️ Contexto Adicional
+      description: Qualquer outra informação relevante sobre o problema
+      placeholder: Contexto, tentativas de solução, etc.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✔️ Checklist
+      description: Confirme que você fez o seguinte
+      options:
+        - label: Procurei por issues similares
+          required: true
+        - label: Testei na versão mais recente
+          required: true
+        - label: Li a documentação
+          required: false
+        - label: Estou disposto a submeter um PR para corrigir este bug
+          required: false

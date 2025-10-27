@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ❓ Perguntas e Dúvidas
+    url: https://github.com/eryckassis/Dot-Workbench/discussions
+    about: Use Discussions para perguntas gerais e discussões
+  - name: 💬 Chat da Comunidade
+    url: https://github.com/eryckassis/Dot-Workbench/discussions
+    about: Converse com outros contribuidores
+  - name: 📖 Documentação
+    url: https://github.com/eryckassis/Dot-Workbench#readme
+    about: Leia a documentação completa

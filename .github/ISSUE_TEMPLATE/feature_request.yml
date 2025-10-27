@@ -1,0 +1,127 @@
+name: ✨ Feature Request
+description: Sugira uma nova funcionalidade ou melhoria
+title: "[FEATURE] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por sugerir uma melhoria! Suas ideias nos ajudam a evoluir.
+
+        **Antes de continuar:**
+        - Verifique se já não existe uma sugestão similar
+        - Confirme que se alinha com os objetivos do projeto
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🎯 Problema ou Necessidade
+      description: Qual problema esta feature resolveria?
+      placeholder: |
+        Exemplo: É frustrante quando eu preciso fazer X porque Y...
+        Seria útil ter Z para facilitar...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 💡 Solução Proposta
+      description: Descreva a solução que você imagina
+      placeholder: |
+        Gostaria de ter uma funcionalidade que...
+        Poderia funcionar assim...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 🔄 Alternativas Consideradas
+      description: Outras abordagens que você pensou?
+      placeholder: |
+        Alternativa 1: ...
+        Alternativa 2: ...
+        Por que a solução proposta é melhor: ...
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: 📋 Casos de Uso
+      description: Exemplos práticos de como você usaria esta feature
+      placeholder: |
+        1. Como usuário, eu gostaria de...
+        2. Ao fazer X, seria útil poder Y...
+        3. Isso me ajudaria a...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 🔥 Prioridade (na sua opinião)
+      description: Quão importante é esta feature para você?
+      options:
+        - "💎 Critical - Bloqueio total"
+        - "🔴 High - Muito importante"
+        - "🟡 Medium - Seria útil"
+        - "🟢 Low - Nice to have"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: ⚙️ Complexidade Estimada
+      description: Na sua opinião, quão complexa seria a implementação?
+      options:
+        - "🟢 Simples - Pequena mudança"
+        - "🟡 Média - Mudança moderada"
+        - "🔴 Complexa - Grande mudança"
+        - "🤷 Não sei avaliar"
+    validations:
+      required: false
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: 🎨 Mockups ou Exemplos
+      description: Wireframes, screenshots, ou links para exemplos similares
+      placeholder: Cole ou arraste imagens/links aqui
+
+  - type: textarea
+    id: technical
+    attributes:
+      label: 🔧 Detalhes Técnicos (Opcional)
+      description: Se você tem ideias técnicas sobre a implementação
+      placeholder: |
+        APIs a usar, bibliotecas, padrões de código, etc.
+      render: markdown
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: 🌟 Benefícios
+      description: Como esta feature beneficiaria o projeto e os usuários?
+      placeholder: |
+        - Melhoraria a UX porque...
+        - Aumentaria a performance em...
+        - Facilitaria o desenvolvimento de...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✔️ Checklist
+      options:
+        - label: Procurei por features similares já sugeridas
+          required: true
+        - label: Esta feature se alinha com os objetivos do projeto
+          required: true
+        - label: Li a documentação e este recurso não existe
+          required: true
+        - label: Estou disposto a ajudar na implementação
+          required: false

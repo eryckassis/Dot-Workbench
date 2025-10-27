@@ -1,0 +1,77 @@
+name: 📚 Documentation
+description: Reporte problemas ou sugira melhorias na documentação
+title: "[DOCS] "
+labels: ["documentation"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a melhorar nossa documentação!
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 📖 Tipo de Documentação
+      description: Qual área da documentação precisa de atenção?
+      options:
+        - "README.md"
+        - "CONTRIBUTING.md"
+        - "API Documentation"
+        - "Code Comments"
+        - "Examples/Tutorials"
+        - "Outro"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: 🔍 Tipo de Issue
+      options:
+        - "❌ Erro ou informação incorreta"
+        - "❓ Informação faltando"
+        - "💡 Sugestão de melhoria"
+        - "🌐 Tradução"
+        - "✨ Nova documentação"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Descrição
+      description: Descreva o problema ou sugestão
+      placeholder: O que precisa ser corrigido ou adicionado?
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: 📍 Localização
+      description: Onde está o problema?
+      placeholder: |
+        Arquivo: README.md
+        Seção: Instalação
+        Linha: 42
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 💡 Sugestão de Correção/Melhoria
+      description: Como você sugere melhorar?
+      placeholder: Texto sugerido ou ideia de como melhorar
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✔️ Checklist
+      options:
+        - label: Verifiquei que a documentação está desatualizada
+          required: true
+        - label: Posso submeter um PR para corrigir/melhorar
+          required: false
