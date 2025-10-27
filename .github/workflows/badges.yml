@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: "0 0 * * 0" # Toda semana
 
+permissions:
+  contents: write
+
 jobs:
   update-badges:
     runs-on: ubuntu-latest
