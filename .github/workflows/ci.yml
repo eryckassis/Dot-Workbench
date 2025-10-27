@@ -81,8 +81,9 @@ jobs:
       - name: Run tests with coverage
         run: npm test -- --coverage --passWithNoTests
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+      - name: Upload coverage
+        if: matrix.node-version == 20
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/lcov.info
@@ -111,7 +112,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build-${{ github.sha }}
           path: dist/
