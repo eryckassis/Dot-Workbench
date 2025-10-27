@@ -57,9 +57,9 @@ export default tseslint.config(
     },
   },
 
-  // Configuração específica para testes
+  // Configuração específica para testes Jest
   {
-    files: ["**/__tests__/**/*", "**/*.test.*", "**/*.spec.*"],
+    files: ["src/**/__tests__/**/*", "src/**/*.test.*", "src/**/*.spec.*"],
     plugins: {
       jest,
     },
@@ -85,6 +85,24 @@ export default tseslint.config(
     },
   },
 
+  // Configuração específica para testes E2E (Playwright)
+  {
+    files: ["e2e/**/*.ts", "e2e/**/*.spec.ts"],
+    languageOptions: {
+      parserOptions: {
+        project: "./e2e/tsconfig.json",
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    rules: {
+      // Relaxar regras para testes E2E
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "no-console": "off",
+    },
+  },
+
   // Arquivos a ignorar
   {
     ignores: [
@@ -92,10 +110,13 @@ export default tseslint.config(
       "dist/**",
       "build/**",
       "coverage/**",
+      "playwright-report/**",
+      "test-results/**",
       "*.config.js",
       "*.config.ts",
       "vite.config.ts",
       "jest.config.js",
+      "playwright.config.ts",
     ],
-  }
+  },
 );
