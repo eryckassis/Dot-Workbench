@@ -1,0 +1,15 @@
+- name: "dependencies"
+  color: "0366d6"
+  description: "Pull requests that update a dependency file"
+
+- name: "automated"
+  color: "1d76db"
+  description: "Automated pull requests"
+
+- name: "npm"
+  color: "cc0000"
+  description: "NPM dependency updates"
+
+- name: "security"
+  color: "ee0701"
+  description: "Security vulnerability updates"
