@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["@playwright/test", "node"],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
+    "noEmit": true,
+    "strict": true
+  },
+  "include": ["**/*.ts", "**/*.spec.ts"],
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../playwright-report",
+    "../test-results"
+  ]
+}
